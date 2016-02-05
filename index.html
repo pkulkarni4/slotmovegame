@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+  <title>Slot move game</title>
+  <link rel=stylesheet href="css/styles.css" />
+  <script src="lib/angular.min.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/Board.js"></script>
+  <script src="js/controllers.js"></script>
+  <script src="js/Player.js"></script>
+</head>
+<body ng-app="MoveSlotGameApp"  ng-controller="slotMoveGamecontroller" ng-keyup="player.moveSlot($event)">
+  <div class="wrapper">
+    <div class="slotMove">
+      <span>Slot Move Game</span>
+    </div>
+      <div class="board">
+        <div ng-repeat="num in data.grid track by $index" class="row">
+          <div ng-repeat="col in data.grid track by $index" data-col="{{$index}}" data-row="{{$parent.$index}}" class="col">
+            <span class="numbers"> {{data.grid[$parent.$index][$index]}} </span>
+          </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
